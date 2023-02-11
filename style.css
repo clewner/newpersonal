@@ -1,0 +1,41 @@
+body{
+    padding:0;
+    margin:0;
+    background-color: black;
+}
+
+.openingscreen{
+    top:0;
+    padding:0;
+    margin:0;
+    height:100vh;
+    width:100vw;
+    background-color:black;
+    position: relative;
+    display: block;
+    
+}
+
+.stars{
+    height:100vh;
+    width:100vw;
+    background-color: black;
+    position: relative;
+    display: block;
+}
+
+.openingtext{
+    margin:0;
+    padding:0;
+    position: relative;
+    font-size:7vw;
+    width:50%;
+    color:white;
+    font-family: Articulat CF,system-ui,sans-serif;
+    text-align: center;
+    left:50%;
+    
+    top:50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
