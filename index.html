@@ -1,23 +1,57 @@
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet" type="text/css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type = "text/javascript" src="script.js"></script>
-    <title>Isaac Saxonov</title>
-</head>
-<body>
-    <div id="opening" class="openingscreen">
-        <h1 class="openingtext"><span>My </span><span>name </span><span>is </span><span>Isaac </span><span>Saxonov.</span></h1>
-    </div>
-    <div class="blackgradient"></div>
-    <canvas id="space_box" class="stars" style="background:#000;">
-        
-    </canvas>
-    <div id="appear" class="appear">HELLO</div>
-    
-</body>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Isaac Saxonov</title>
+		
+		<meta name="viewport" content="width=device-width">
+		<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+		
+		<link rel="stylesheet" href="style.css" />
+        <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="script.js"></script>
+	</head>
+	<body>
+		<div class="openingscreen" id="opening">
+			<h1 class="openingtext" data-aos="zoom-in">Hi there.</h1>
+		</div>
+        <div class="secondscreen" id="secondscreen">
+			
+				<h1 class="iamtext" data-aos="fade-left" data-aos-easing="ease-in-out">I am a 
+					<div class="changertextcontain">
+					<span id = "changertextone" class="kickertext">philosopher</span>
+					<span id="changertexttwo" class="kickertext">coder</span>
+					</div>
+				</h1>
+			
+        </div>
+			
+		
+
+		
+
+		
+		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+		<!-- <script src="http://localhost:3002/dist/aos.js"></script> -->
+
+		<script>
+			AOS.init({
+				easing: 'ease-out-back',
+				duration: 1000
+			});
+		</script>
+
+		<script>
+			hljs.initHighlightingOnLoad();
+
+			$('.hero__scroll').on('click', function(e) {
+				$('html, body').animate({
+					scrollTop: $(window).height()
+				}, 1200);
+			});
+		</script>
+	</body>
 </html>
