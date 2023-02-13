@@ -3,9 +3,11 @@ body{
     margin:0;
     background-color: black;
     height:500vh;
+    overflow-x:hidden;
 }
 
 .openingscreen{
+    text-align: center;
     top:0;
     padding:0;
     margin:0;
@@ -13,59 +15,104 @@ body{
     width:100vw;
     background-color:black;
     position: relative;
-    display: block;
+    display: grid;
+    place-items:  center;
     
-}
-
-
-
-.stars{
-    height:100vh;
-    width:100vw;
-    background-color: black;
-    position: sticky;
-    top:0;
-    display: block;
-
 }
 
 .openingtext{
     margin:0;
     padding:0;
     position: relative;
-    font-size:7vw;
+    font-size:5vw;
     width:50%;
+    max-width:850px;
     color:white;
     font-family: Articulat CF,system-ui,sans-serif;
     text-align: center;
-    left:50%;
+    display: flex;
+    align-items:center;
+    justify-content:center;
     
-    top:50%;
-    transform: translateX(-50%) translateY(-50%);
 }
 
-.blackgradient{
-    z-index:500;
-    
-    top:100vh;
-    display: block;
-    position: absolute;
-    width:100%;
+.secondscreen{
+    text-align: center;
+    top:0;
     padding:0;
     margin:0;
-    height:30vh;
+    height:100vh;
+    width:100vw;
+    background-color:red;
+    position: relative;
     
-    background-color: transparent;
-
-    background: linear-gradient( rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.2) );
+    display: flex;
+    align-items:center;
+    justify-content:center;
 }
 
+.fixed{
+    position: fixed;
+    top:0;
+}
+
+
+
+.iamtext{
+    
+    margin:0;
+    padding:0;
+    position: relative;
+    font-size:5vw;
+    width:50%;
+    max-width:850px;
+    color:white;
+    font-family: Articulat CF,system-ui,sans-serif;
+    text-align: center;
+    flex-basis:100%;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    
+}
 .appear{
     background-color: red;
     width:500px;
     height:500px;
-    position: fixed;
+    position: relative;
     top:0;
-    display: none;
+    display: block;
 
+}
+
+.changertextcontain{
+    margin:0;
+    margin-left:2%;
+    padding:0;
+    position: relative;
+    
+    display: inline-block;
+}
+
+.kickertext{
+    margin:0;
+    padding:0;
+    color:white;
+    
+}
+
+#changertextone{
+    opacity: 0;
+}
+
+#changertexttwo{
+    
+    position: absolute;
+    right:50%;
+    
+    top:0;
+    transform: translateX(50%);
+    
+    font-size: 10vw;
+    line-height:4.5vw;
 }
