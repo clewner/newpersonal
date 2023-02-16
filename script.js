@@ -1,7 +1,12 @@
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+}
+
 $(document).ready(function(){
     var STAR_COLOURS = ["#ffffff", "#ffe9c4", "#d4fbff"]; 
     var HEIGHT = 3 * $(window).height();
-    var WIDTH = $(window).width(); 
+    var WIDTH = $(window).width();
+    
 
     function random (min, max) {
         return Math.round((Math.random() * max - min) + min);
@@ -52,9 +57,10 @@ $(document).ready(function(){
         
       
         var pos = $(window).scrollTop();
+        console.log((winH * 2) + " " + pos + " " + (winH*3));
 
         if(pos > winH){
-            console.log("weirdo")
+            
             if(!($("#secondscreen").hasClass("fixed"))){
                 $("#secondscreen").addClass("fixed");
             }
@@ -66,19 +72,20 @@ $(document).ready(function(){
         }
         if(pos < winH * 2 ){
             
-            
+            $('#changertextone').css({"transform" : "translateY(0px)"});
+            $('#changertextone').css("opacity", "1");
             $('#changertexttwo').css("opacity", "0");
         }
     
         if (pos > winH * 2 && pos < winH * 3){
             
 
-                
+                console.log("here");
                 var addition = 300 - 300 * (pos - winH * 2)/(winH * 3 - winH * 2);
                 var subtraction = -300 * (pos - winH * 2)/(winH * 3 - winH * 2);
                 var opacitysubtraction = 1 - (pos - winH * 2)/(winH * 3 - winH * 2);
                 var opacityaddition = (pos - winH * 2)/(winH * 3 - winH * 2);
-                console.log(addition);
+                
                 
                 $('#changertextone').css("opacity", opacitysubtraction);
                 $('#changertexttwo').css("opacity", opacityaddition);
@@ -100,7 +107,3 @@ $(document).ready(function(){
 });
 
 
-
-
-
-// GO, GO, GO!
