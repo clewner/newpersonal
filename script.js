@@ -1,4 +1,48 @@
 $(document).ready(function(){
+    var STAR_COLOURS = ["#ffffff", "#ffe9c4", "#d4fbff"]; 
+    var HEIGHT = 3 * $(window).height();
+    var WIDTH = $(window).width(); 
+
+    function random (min, max) {
+        return Math.round((Math.random() * max - min) + min);
+    }
+
+
+    function star_field (context, star_number) {
+        var x, y, brightness, radius; 
+
+        context.fillStyle = "#000";
+        context.fillRect(0, 0, WIDTH, HEIGHT);
+
+        
+
+        for (var i = 0; i < star_number; i++) {
+            x = Math.random() * WIDTH;
+            y = Math.random() * HEIGHT;
+            radius = Math.random() * HEIGHT/750;
+            brightness = random(80, 100) / 100;
+
+            context.beginPath();
+            context.globalAlpha = brightness;
+            context.fillStyle = STAR_COLOURS[random(0, STAR_COLOURS.length)];
+            context.arc(x, y, radius, 0, Math.PI * 2, true);
+            context.fill();
+            context.closePath();
+        }
+
+
+    }
+
+
+    function init () {
+        var canvas = document.getElementById('philosophybackground'),
+        context = canvas.getContext('2d');
+        canvas.width = WIDTH;
+        canvas.height = HEIGHT;
+        star_field(context, 300);
+    }
+
+    init();
 
     
     
@@ -54,3 +98,9 @@ $(document).ready(function(){
     });
 
 });
+
+
+
+
+
+// GO, GO, GO!
