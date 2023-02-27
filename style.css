@@ -2,6 +2,7 @@ html{
     margin:0;
     padding:0;
     overflow-x:hidden;
+    
 }
 
 body{
@@ -10,7 +11,7 @@ body{
     background-color: black;
     height:600vh;
     width:100vw;
-    overflow-x:hidden;
+    overflow: hidden;
 }
 
 .openingscreen{
@@ -24,6 +25,7 @@ body{
     position: relative;
     display: grid;
     place-items:  center;
+    
     
 }
 
