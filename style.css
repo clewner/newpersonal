@@ -1,5 +1,5 @@
 html{
-    body:0;
+    margin:0;
     padding:0;
 }
 
@@ -160,10 +160,12 @@ body{
 
 .codingbackground{
     height:200vh;
-    position: relative;
+    
     width:100vw;
-    z-index:-100;
+
     background-color: black;
+    position: relative;
+    z-index:-100;
 }
 
 .philosophybackground{

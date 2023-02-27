@@ -1,8 +1,12 @@
 window.onbeforeunload = function () {
     window.scrollTo(0, 0);
+    frame = 1;
 }
 
 $(document).ready(function(){
+    var winH = $(window).height();
+    var winW = $(window).width();
+    /*Stars*/
     var STAR_COLOURS = ["#ffffff", "#ffe9c4", "#d4fbff"]; 
     var HEIGHT = 3 * $(window).height();
     var WIDTH = $(window).width();
@@ -48,16 +52,80 @@ $(document).ready(function(){
     }
 
     init();
+    /*stars end*/
+
+    var canva = document.getElementById('codingbackground');
+    var ctx = canva.getContext('2d');
+    
+    const ratio = Math.ceil(window.devicePixelRatio);
+    canva.width = winW * ratio;
+    canva.height = winH * 2 * ratio;
+
+    var matrix = "10";
+    matrix = matrix.split("");
+    
+
+    var columnratio;
+    var rowratio;
+    /*1470 max width*/
+
+    ctx.fillStyle = '#FFFFFF';
+    console.log(winW);
+    if(winW<370){
+        ctx.font = "3vw Arial";
+        columnratio = 100;
+        rowratio = 200;
+    }else if(winW < 500){
+        ctx.font = "2vw Arial";
+        columnratio = 100;
+        rowratio = 200;
+
+    }else if(winW < 700){
+        ctx.font = "2vw Arial";
+        columnratio = 100;
+        rowratio = 150;
+    }else if(winW < 800){
+        ctx.font = "2vw Arial";
+        columnratio = 100;
+        rowratio = 150;
+    }else if(winW < 1000){
+        ctx.font = "2vw Arial";
+        columnratio = 100;
+        rowratio = 150;
+
+    }else{
+        ctx.font = "2vw Arial";
+        columnratio = 150;
+        rowratio = 100;
+    }
+
+    
+    ctx.textAlign = "left";
+
+    var columns = canva.width/columnratio;
+    var rows = canva.height/rowratio;
+    
+   
+    for(var i = 0; i<columnratio; i++){
+        for(var j = 0; j<rowratio; j++){
+            var text = matrix[Math.floor(Math.random()*matrix.length)];
+            ctx.fillText(text, i * columns, j * rows);
+        }
+    }
+
+    
+      
+    
 
     
     
     var lastScrollTop = 0;
-    var winH = $(window).height();
+    
     $(window).on('scroll', function() {
         
       
         var pos = $(window).scrollTop();
-        console.log((winH * 2) + " " + pos + " " + (winH*3));
+        
 
         if(pos > winH){
             
@@ -77,14 +145,14 @@ $(document).ready(function(){
             $('#changertexttwo').css("opacity", "0");
         }
     
-        if (pos > winH * 2 && pos < winH * 3){
+        if (pos > winH * 2 && pos < winH * 2.5){
             
 
-                console.log("here");
-                var addition = 300 - 300 * (pos - winH * 2)/(winH * 3 - winH * 2);
-                var subtraction = -300 * (pos - winH * 2)/(winH * 3 - winH * 2);
-                var opacitysubtraction = 1 - (pos - winH * 2)/(winH * 3 - winH * 2);
-                var opacityaddition = (pos - winH * 2)/(winH * 3 - winH * 2);
+                
+                var addition = 300 - 300 * (pos - winH * 2)/(winH * 2.5 - winH * 2);
+                var subtraction = -300 * (pos - winH * 2)/(winH * 2.5 - winH * 2);
+                var opacitysubtraction = 1 - (pos - winH * 2)/(winH * 2.5 - winH * 2);
+                var opacityaddition = (pos - winH * 2)/(winH * 2.5 - winH * 2);
                 
                 
                 $('#changertextone').css("opacity", opacitysubtraction);
@@ -94,7 +162,7 @@ $(document).ready(function(){
 
             
         }
-        if(pos > winH*3){
+        if(pos > winH*2.5){
             
             $('#changertextone').css("opacity", "0");
             
