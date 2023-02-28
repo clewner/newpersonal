@@ -69,12 +69,12 @@ $(document).ready(function(){
     var rowratio;
     /*1470 max width*/
 
-    ctx.fillStyle = '#FFFFFF';
+    
     console.log(winW);
     
     font_size = 15;
 
-    ctx.fillStyle = "green";
+    ctx.fillStyle = "rgba(0,255,65,1)";
     ctx.font = "1em Courier New, Courier, monospace";
 
     
@@ -94,6 +94,19 @@ $(document).ready(function(){
             ctx.fillText(text, i * columns, j * rows);
         }
     }
+    
+
+    /*ctx.fillRect(0, 0, canva.width, canva.height/4);*/
+    var grd = ctx.createLinearGradient(canva.width/2, 0, canva.width/2, canva.height);
+    grd.addColorStop(0, "rgba(0,0,0,1)");
+    grd.addColorStop(0.4, "rgba(0,0,0,0.3)");
+    grd.addColorStop(0.6, "rgba(0,0,0,0.3)");
+    grd.addColorStop(1, "rgba(0,0,0,1)");
+
+    ctx.fillStyle = grd;
+    ctx.fillRect(0,0,canva.width,canva.height);
+
+
 
     
       
