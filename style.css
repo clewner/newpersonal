@@ -48,12 +48,14 @@ body{
 
 .secondscreen{
     text-align: center;
-    top:0;
+    top:100vh;
+    left:0;
     padding:0;
     margin:0;
     height:100vh;
     width:100vw;
     background:transparent;
+    position: absolute;
     
     
     display: flex;
@@ -82,6 +84,7 @@ body{
     color:white;
     font-family: Articulat CF,system-ui,sans-serif;
     text-align: center;
+    background:transparent;
     
     
     display: block;
@@ -161,6 +164,17 @@ body{
 }
 
 /* philosophy */
+
+.filler{
+    margin:0;
+    padding:0;
+    position: relative;
+    display: block;
+    height:100vh;
+    width:100vw;
+    background-color: black;
+    z-index:-100;
+}
 
 .codingbackground{
     height:200vh;

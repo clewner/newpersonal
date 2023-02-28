@@ -71,33 +71,7 @@ $(document).ready(function(){
 
     ctx.fillStyle = '#FFFFFF';
     console.log(winW);
-    if(winW<370){
-        ctx.font = "3vw Arial";
-        columnratio = 100;
-        rowratio = 200;
-    }else if(winW < 500){
-        ctx.font = "2vw Arial";
-        columnratio = 100;
-        rowratio = 200;
-
-    }else if(winW < 700){
-        ctx.font = "2vw Arial";
-        columnratio = 100;
-        rowratio = 150;
-    }else if(winW < 800){
-        ctx.font = "2vw Arial";
-        columnratio = 100;
-        rowratio = 150;
-    }else if(winW < 1000){
-        ctx.font = "2vw Arial";
-        columnratio = 100;
-        rowratio = 150;
-
-    }else{
-        ctx.font = "2vw Arial";
-        columnratio = 150;
-        rowratio = 100;
-    }
+    
     font_size = 15;
 
     ctx.fillStyle = "green";
