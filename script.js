@@ -98,15 +98,22 @@ $(document).ready(function(){
         columnratio = 150;
         rowratio = 100;
     }
+    font_size = 15;
 
+    ctx.fillStyle = "green";
+    ctx.font = "15px Courier New, Courier, monospace";
+
+
+    columnratio = winW/15;
+    rowratio = winH*2/15;
     
-    ctx.textAlign = "left";
+    ctx.textAlign = "center";
 
     var columns = canva.width/columnratio;
     var rows = canva.height/rowratio;
     
    
-    for(var i = 0; i<columnratio; i++){
+    for(var i = 0; i<columnratio + 1; i++){
         for(var j = 0; j<rowratio; j++){
             var text = matrix[Math.floor(Math.random()*matrix.length)];
             ctx.fillText(text, i * columns, j * rows);
