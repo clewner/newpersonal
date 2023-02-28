@@ -58,8 +58,8 @@ $(document).ready(function(){
     var ctx = canva.getContext('2d');
     
     const ratio = Math.ceil(window.devicePixelRatio);
-    canva.width = winW * ratio;
-    canva.height = winH * 2 * ratio;
+    canva.width = winW;
+    canva.height = winH * 2;
 
     var matrix = "10";
     matrix = matrix.split("");
@@ -101,7 +101,7 @@ $(document).ready(function(){
     font_size = 15;
 
     ctx.fillStyle = "green";
-    ctx.font = "4mm Courier New, Courier, monospace";
+    ctx.font = "1em Courier New, Courier, monospace";
 
     
     
