@@ -121,7 +121,7 @@ $(document).ready(function(){
       
         var pos = $(window).scrollTop();
         
-
+        
         if(pos > winH){
             
             if(!($("#secondscreen").hasClass("fixed"))){
