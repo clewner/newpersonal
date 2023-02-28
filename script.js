@@ -101,9 +101,10 @@ $(document).ready(function(){
     font_size = 15;
 
     ctx.fillStyle = "green";
-    ctx.font = "15px Courier New, Courier, monospace";
+    ctx.font = "4mm Courier New, Courier, monospace";
 
-
+    
+    
     columnratio = winW/15;
     rowratio = winH*2/15;
     
