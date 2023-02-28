@@ -4,8 +4,13 @@ window.onbeforeunload = function () {
 }
 
 $(document).ready(function(){
+
+
     var winH = $(window).height();
     var winW = $(window).width();
+
+    console.log(winH);
+    console.log(window.innerHeight);
     /*Stars*/
     var STAR_COLOURS = ["#ffffff", "#ffe9c4", "#d4fbff"]; 
     var HEIGHT = 3 * $(window).height();
@@ -69,8 +74,7 @@ $(document).ready(function(){
     var rowratio;
     /*1470 max width*/
 
-    
-    console.log(winW);
+
     
     font_size = 15;
 
@@ -122,7 +126,7 @@ $(document).ready(function(){
         var pos = $(window).scrollTop();
         
         
-        if(pos > winH){
+        /*if(pos > winH){
             
             if(!($("#secondscreen").hasClass("fixed"))){
                 $("#secondscreen").addClass("fixed");
@@ -132,7 +136,7 @@ $(document).ready(function(){
             if($("#secondscreen").hasClass("fixed")){
                 $("#secondscreen").removeClass("fixed");
             }
-        }
+        }*/
         if(pos < winH * 2 ){
             
             $('#changertextone').css({"transform" : "translateY(0px)"});
