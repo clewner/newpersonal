@@ -54,7 +54,65 @@ $(document).ready(function(){
     init();
     /*stars end*/
 
+    var canva = document.getElementById('codingbackground');
+    var ctx = canva.getContext('2d');
     
+    const ratio = Math.ceil(window.devicePixelRatio);
+    canva.width = winW * ratio;
+    canva.height = winH * 2 * ratio;
+
+    var matrix = "10";
+    matrix = matrix.split("");
+    
+
+    var columnratio;
+    var rowratio;
+    /*1470 max width*/
+
+    ctx.fillStyle = '#FFFFFF';
+    console.log(winW);
+    if(winW<370){
+        ctx.font = "3vw Arial";
+        columnratio = 100;
+        rowratio = 200;
+    }else if(winW < 500){
+        ctx.font = "2vw Arial";
+        columnratio = 100;
+        rowratio = 200;
+
+    }else if(winW < 700){
+        ctx.font = "2vw Arial";
+        columnratio = 100;
+        rowratio = 150;
+    }else if(winW < 800){
+        ctx.font = "2vw Arial";
+        columnratio = 100;
+        rowratio = 150;
+    }else if(winW < 1000){
+        ctx.font = "2vw Arial";
+        columnratio = 100;
+        rowratio = 150;
+
+    }else{
+        ctx.font = "2vw Arial";
+        columnratio = 150;
+        rowratio = 100;
+    }
+
+    
+    ctx.textAlign = "left";
+
+    var columns = canva.width/columnratio;
+    var rows = canva.height/rowratio;
+    
+   
+    for(var i = 0; i<columnratio; i++){
+        for(var j = 0; j<rowratio; j++){
+            var text = matrix[Math.floor(Math.random()*matrix.length)];
+            ctx.fillText(text, i * columns, j * rows);
+        }
+    }
+
     
       
     
@@ -107,6 +165,7 @@ $(document).ready(function(){
         if(pos > winH*2.5){
             
             $('#changertextone').css("opacity", "0");
+            $('#changertexttwo').css({"transform" : "translateY(0px)"});
             
         }
         
