@@ -126,17 +126,14 @@ $(document).ready(function(){
         var pos = $(window).scrollTop();
         
         
-        /*if(pos > winH){
+        if(pos > winH){
             
-            if(!($("#secondscreen").hasClass("fixed"))){
-                $("#secondscreen").addClass("fixed");
-            }
+            $(".secondscreen").setAttribute("data-aos", "");
+            
             
         }else{
-            if($("#secondscreen").hasClass("fixed")){
-                $("#secondscreen").removeClass("fixed");
-            }
-        }*/
+            $(".secondscreen").setAttribute("data-aos", "fade-left");
+        }
         if(pos < winH * 2 ){
             
             $('#changertextone').css({"transform" : "translateY(0px)"});
