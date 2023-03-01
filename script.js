@@ -51,9 +51,18 @@ $(document).ready(function(){
     function init () {
         var canvas = document.getElementById('philosophybackground'),
         context = canvas.getContext('2d');
+        
+        context.fillRect(0,0,canvas.width,canvas.height);
         canvas.width = WIDTH;
         canvas.height = HEIGHT;
         star_field(context, 300);
+        var grd = context.createLinearGradient(canvas.width/2, 0, canvas.width/2, canvas.height);
+        grd.addColorStop(0, "rgba(0,0,0,1)");
+        grd.addColorStop(0.25, "rgba(0,0,0,0.3)");
+        grd.addColorStop(0.75, "rgba(0,0,0,0.3)");
+        grd.addColorStop(1, "rgba(0,0,0,1)");
+
+        context.fillStyle = grd;
     }
 
     init();
@@ -64,7 +73,7 @@ $(document).ready(function(){
     
     const ratio = Math.ceil(window.devicePixelRatio);
     canva.width = winW;
-    canva.height = winH * 2;
+    canva.height = winH;
 
     var matrix = "10";
     matrix = matrix.split("");
@@ -84,7 +93,7 @@ $(document).ready(function(){
     
     
     columnratio = winW/15;
-    rowratio = winH*2/15;
+    rowratio = winH/15;
     
     ctx.textAlign = "center";
 
@@ -103,8 +112,8 @@ $(document).ready(function(){
     /*ctx.fillRect(0, 0, canva.width, canva.height/4);*/
     var grd = ctx.createLinearGradient(canva.width/2, 0, canva.width/2, canva.height);
     grd.addColorStop(0, "rgba(0,0,0,1)");
-    grd.addColorStop(0.4, "rgba(0,0,0,0.3)");
-    grd.addColorStop(0.6, "rgba(0,0,0,0.3)");
+    grd.addColorStop(0.25, "rgba(0,0,0,0.3)");
+    grd.addColorStop(0.75, "rgba(0,0,0,0.3)");
     grd.addColorStop(1, "rgba(0,0,0,1)");
 
     ctx.fillStyle = grd;
@@ -133,22 +142,28 @@ $(document).ready(function(){
             
         }else{
             $(".secondallcontain").attr("data-aos", "fade-left");
+            
         }
-        if(pos < winH * 2 ){
+
+        var startpos = 1;
+        var endpos = 1.5;
+
+
+        if(pos < winH * startpos ){
             
             $('#changertextone').css({"transform" : "translateY(0px)"});
             $('#changertextone').css("opacity", "1");
             $('#changertexttwo').css("opacity", "0");
         }
-    
-        if (pos > winH * 2 && pos < winH * 2.5){
+
+        if (pos > winH * startpos && pos < winH * endpos){
             
 
                 
-                var addition = 300 - 300 * (pos - winH * 2)/(winH * 2.5 - winH * 2);
-                var subtraction = -300 * (pos - winH * 2)/(winH * 2.5 - winH * 2);
-                var opacitysubtraction = 1 - (pos - winH * 2)/(winH * 2.5 - winH * 2);
-                var opacityaddition = (pos - winH * 2)/(winH * 2.5 - winH * 2);
+                var addition = 300 - 300 * (pos - winH * startpos)/(winH * endpos - winH * startpos);
+                var subtraction = -300 * (pos - winH * startpos)/(winH * endpos - winH * startpos);
+                var opacitysubtraction = 1 - (pos - winH * startpos)/(winH * endpos - winH * startpos);
+                var opacityaddition = (pos - winH * startpos)/(winH * endpos - winH * startpos);
                 
                 
                 $('#changertextone').css("opacity", opacitysubtraction);
@@ -158,10 +173,43 @@ $(document).ready(function(){
 
             
         }
-        if(pos > winH*2.5){
+        var secondstartpos = 2.5;
+        var secondendpos = 3;
+        if(pos > winH*endpos && pos < winH  * secondstartpos){
             
             $('#changertextone').css("opacity", "0");
             $('#changertexttwo').css({"transform" : "translateY(0px)"});
+            
+        }
+        
+        
+
+        if(pos < winH * secondstartpos ){
+            
+            $('#changertextthree').css("opacity", "0");
+        }
+
+        if (pos > winH * secondstartpos && pos < winH * secondendpos){
+            
+
+                
+                var addition = 300 - 300 * (pos - winH * secondstartpos)/(winH * secondendpos - winH * secondstartpos);
+                var subtraction = -300 * (pos - winH * secondstartpos)/(winH * secondendpos - winH * secondstartpos);
+                var opacitysubtraction = 1 - (pos - winH * secondstartpos)/(winH * secondendpos - winH * secondstartpos);
+                var opacityaddition = (pos - winH * secondstartpos)/(winH * secondendpos - winH * secondstartpos);
+                
+                
+                $('#changertexttwo').css("opacity", opacitysubtraction);
+                $('#changertextthree').css("opacity", opacityaddition);
+                $('#changertexttwo').css({"transform" : "translateY(" + subtraction + "px)"});
+                $('#changertextthree').css({"transform" : "translateY(" + addition + "px)"});
+
+            
+        }
+        if(pos > winH*secondendpos){
+            
+            $('#changertexttwo').css("opacity", "0");
+            $('#changertextthree').css({"transform" : "translateY(0px)"});
             
         }
         
