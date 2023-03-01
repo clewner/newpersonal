@@ -157,6 +157,7 @@ $(document).ready(function(){
             $('#changertextone').css({"transform" : "translateY(0px)"});
             $('#changertextone').css("opacity", "1");
             $('#changertexttwo').css("opacity", "0");
+            $('#changertextthree').css("opacity", "0");
         }else if (pos > winH * startpos && pos < winH * endpos){
             
 
@@ -171,12 +172,13 @@ $(document).ready(function(){
                 $('#changertexttwo').css("opacity", opacityaddition);
                 $('#changertextone').css({"transform" : "translateY(" + subtraction + "px)"});
                 $('#changertexttwo').css({"transform" : "translateY(" + addition + "px)"});
-
+                $('#changertextthree').css("opacity", "0");
             
         }else if(pos > winH*endpos && pos < winH  * secondstartpos){
             
             $('#changertextone').css("opacity", "0");
             $('#changertexttwo').css({"transform" : "translateY(0px)"});
+            $('#changertextthree').css("opacity", "0");
             
         }else if(pos < winH * secondstartpos ){
             
