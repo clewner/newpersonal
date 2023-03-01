@@ -128,11 +128,11 @@ $(document).ready(function(){
         
         if(pos > winH){
             
-            $(".secondscreen").setAttribute("data-aos", "");
+            $(".secondallcontain").attr("data-aos", "");
             
             
         }else{
-            $(".secondscreen").setAttribute("data-aos", "fade-left");
+            $(".secondallcontain").attr("data-aos", "fade-left");
         }
         if(pos < winH * 2 ){
             
