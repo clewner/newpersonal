@@ -73,7 +73,7 @@ $(document).ready(function(){
     
     const ratio = Math.ceil(window.devicePixelRatio);
     canva.width = winW;
-    canva.height = winH;
+    canva.height = winH * 1.5;
 
     var matrix = "10";
     matrix = matrix.split("");
@@ -93,7 +93,7 @@ $(document).ready(function(){
     
     
     columnratio = winW/15;
-    rowratio = winH/15;
+    rowratio = winH * 1.5/15;
     
     ctx.textAlign = "center";
 
@@ -145,8 +145,11 @@ $(document).ready(function(){
             
         }
 
-        var startpos = 1;
-        var endpos = 1.5;
+        var startpos = 1.5;
+        var endpos = 2;
+
+        var secondstartpos = 3;
+        var secondendpos = 3.5;
 
 
         if(pos < winH * startpos ){
@@ -154,9 +157,7 @@ $(document).ready(function(){
             $('#changertextone').css({"transform" : "translateY(0px)"});
             $('#changertextone').css("opacity", "1");
             $('#changertexttwo').css("opacity", "0");
-        }
-
-        if (pos > winH * startpos && pos < winH * endpos){
+        }else if (pos > winH * startpos && pos < winH * endpos){
             
 
                 
@@ -172,24 +173,15 @@ $(document).ready(function(){
                 $('#changertexttwo').css({"transform" : "translateY(" + addition + "px)"});
 
             
-        }
-        var secondstartpos = 2.5;
-        var secondendpos = 3;
-        if(pos > winH*endpos && pos < winH  * secondstartpos){
+        }else if(pos > winH*endpos && pos < winH  * secondstartpos){
             
             $('#changertextone').css("opacity", "0");
             $('#changertexttwo').css({"transform" : "translateY(0px)"});
             
-        }
-        
-        
-
-        if(pos < winH * secondstartpos ){
+        }else if(pos < winH * secondstartpos ){
             
             $('#changertextthree').css("opacity", "0");
-        }
-
-        if (pos > winH * secondstartpos && pos < winH * secondendpos){
+        }else if (pos > winH * secondstartpos && pos < winH * secondendpos){
             
 
                 
@@ -205,8 +197,7 @@ $(document).ready(function(){
                 $('#changertextthree').css({"transform" : "translateY(" + addition + "px)"});
 
             
-        }
-        if(pos > winH*secondendpos){
+        }else if(pos > winH*secondendpos){
             
             $('#changertexttwo').css("opacity", "0");
             $('#changertextthree').css({"transform" : "translateY(0px)"});
