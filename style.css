@@ -9,7 +9,7 @@ body{
     padding:0;
     margin:0;
     background-color: black;
-    height:600vh;
+    height:800vh;
     width:100vw;
     
     
@@ -176,6 +176,16 @@ body{
     font-size:min(16vw, 250px);
 }
 
+#changertextfour{
+    transform:translateY(300px);
+    position: absolute;
+    
+    right:0;
+    top:0;
+    display: inline-block;
+    font-size:min(10vw, 150px);
+}
+
 /* philosophy */
 
 .filler{
@@ -203,9 +213,26 @@ body{
 .philosophybackground{
     top:-100vh;
     position: relative;
-    height:300vh;
+    height:150vh;
+    width:100vw;
+    z-index:-100;
+    background: black;
+} 
+
+.writingbackground{
+    top:-100vh;
+    position: relative;
+    height:150vh;
     width:100vw;
     z-index:-100;
     background: black;
 } 
  
+.humanitarianbackground{
+    top:-100vh;
+    position: relative;
+    height:150vh;
+    width:100vw;
+    z-index:-100;
+    background: black;
+}
