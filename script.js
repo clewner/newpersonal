@@ -141,10 +141,11 @@ $(document).ready(function(){
         var words = ["story", "novel", "book", "pen", "write", "literature", "words", "imagination", "creativity", "inspiration"];
     
         // Base font size, based on a minimum size and screen size
-        var baseFontSize = Math.max(16, Math.min(winW, winH) * 0.02);
-        
+        var screenDiagonal = Math.sqrt(winW * winW + winH * winH);
+        var baseFontSize = Math.max(16, screenDiagonal * 0.015);  // Adjust this proportion as necessary
+    
         // Number of words to display, increase it for smaller screens
-        var wordCount = Math.floor(Math.max(winW, winH) * 0.03);  // Slight increase here
+        var wordCount = Math.floor(Math.max(winW, winH) * 0.02);  // Slight increase here
     
         // Draw words at random positions
         for (var i = 0; i < wordCount; i++) {
@@ -186,7 +187,7 @@ $(document).ready(function(){
             var devicePixelRatio = window.devicePixelRatio || 1;
             canvas.width = winW;
             canvas.height = winH * 1.5;
-            ctx.scale(devicePixelRatio, devicePixelRatio);
+            
         
             // SVG sources
             var svgs = [
@@ -216,37 +217,43 @@ $(document).ready(function(){
             });
         
             function createAndDrawIcons() {
-                // Calculate number of icons based on window size
-                var iconCount = Math.max(5, Math.floor((canvas.width * canvas.height) / 50000));
-                var iconSize = Math.min(80, Math.max(20, Math.floor(Math.sqrt((canvas.width * canvas.height) / iconCount))));
+                // Icon parameters based on screen size
+                var minSize = Math.max(canvas.width * 0.04, 30);  // 1% of screen width
+                var maxSize = Math.max(canvas.width * 0.07, 40);  // 2% of screen width
+                var rotationVariance = 360;
+                var opacity = 0.7;
             
-                // Array to hold your icons
-                var icons = [];
+                // Set how many icons you want to draw
+                var numIcons = 50;
             
-                for (var i = 0; i < iconCount; i++) {
+                // Create and draw icons
+                for (var i = 0; i < numIcons; i++) {
+                    // Choose a random image
                     var img = images[Math.floor(Math.random() * images.length)];
-                    var x = Math.random() * (canvas.width - iconSize);
-                    var y = Math.random() * (canvas.height - iconSize);
-                    var rotation = Math.random() * 360; // Random rotation between 0 and 360 degrees
-                    icons.push({ img: img, x: x, y: y, size: iconSize, rotation: rotation });
-                }
             
-                // Clear canvas
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    // Calculate size and position
+                    var size = minSize + Math.random() * (maxSize - minSize);
+                    var posX = Math.random() * (canvas.width - size);
+                    var posY = Math.random() * (canvas.height - size);
             
-                // Draw each icon
-                icons.forEach(function(icon) {
-                    // Calculate icon opacity based on y position relative to the full canvas height
-                    var opacity = 1 - Math.abs(canvas.height / 2 - icon.y) / (canvas.height / 2);
-                    ctx.globalAlpha = Math.max(opacity, 0.2); // Set the opacity, ensuring it doesn't go below 0.2
+                    // Calculate opacity
+                    var distanceFromCenter = Math.abs(canvas.height / 2 - posY);
+                    var opacityMod = 1 - (distanceFromCenter / (canvas.height / 2));
+                    var finalOpacity = opacity * opacityMod;
+            
+                    // Set rotation
+                    var rotation = Math.random() * rotationVariance;
+            
+                    // Save context state, translate, rotate, draw image, then restore state
                     ctx.save();
-                    ctx.translate(icon.x + icon.size / 2, icon.y + icon.size / 2);
-                    ctx.rotate(icon.rotation * Math.PI / 180);
-                    ctx.drawImage(icon.img, -icon.size / 2, -icon.size / 2, icon.size, icon.size);
+                    ctx.translate(posX + size / 2, posY + size / 2);
+                    ctx.rotate(rotation * Math.PI / 180);
+                    ctx.globalAlpha = finalOpacity;
+                    ctx.drawImage(img, -size / 2, -size / 2, size, size);
                     ctx.restore();
-                    ctx.globalAlpha = 1; // Reset opacity
-                });
+                }
             }
+            
         }
 
 
