@@ -154,7 +154,7 @@ $(document).ready(function(){
             ctx.font = fontSize + 'px ' + "'Homemade Apple', cursive";
     
             var x = Math.floor(Math.random() * canvas.width / devicePixelRatio);
-            var y = fontSize + Math.floor(Math.random() * (canvas.height / devicePixelRatio - 2 * fontSize));
+            var y = fontSize + Math.floor(Math.random() * (canvas.height / devicePixelRatio - 2.3 * fontSize));
     
             // Calculate opacity based on y position
             var opacity = 1 - Math.pow(Math.abs(canvas.height / devicePixelRatio / 2 - y) / (canvas.height / devicePixelRatio / 2), 2);
