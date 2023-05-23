@@ -151,7 +151,7 @@ $(document).ready(function(){
         for (var i = 0; i < wordCount; i++) {
             var word = words[Math.floor(Math.random() * words.length)];
             var fontSize = baseFontSize * (0.75 + Math.random() * 0.5);  // Add some randomness to size
-            ctx.font = fontSize + 'px Brush Script MT';
+            ctx.font = fontSize + 'px ' + "'Homemade Apple', cursive";
     
             var x = Math.floor(Math.random() * canvas.width / devicePixelRatio);
             var y = fontSize + Math.floor(Math.random() * (canvas.height / devicePixelRatio - 2 * fontSize));
